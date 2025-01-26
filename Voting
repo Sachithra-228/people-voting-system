@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .vote-options {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .vote-option {
+            width: 30%;
+            text-align: center;
+        }
+        .vote-option button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .vote-option button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+        .emoji {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Voting System</h1>
+
+    <div class="vote-options">
+        <div class="vote-option">
+            <button onclick="vote('Option 1')"><span class="emoji">👨‍💻</span> Vote for Option 1</button>
+        </div>
+        <div class="vote-option">
+            <button onclick="vote('Option 2')"><span class="emoji">👩‍💻</span> Vote for Option 2</button>
+        </div>
+        <div class="vote-option">
+            <button onclick="vote('Option 3')"><span class="emoji">🧑‍💻</span> Vote for Option 3</button>
+        </div>
+    </div>
+
+    <div class="result">
+        <h2>Voting Results:</h2>
+        <p>Option 1: <span id="option1Votes">0</span> votes</p>
+        <p>Option 2: <span id="option2Votes">0</span> votes</p>
+        <p>Option 3: <span id="option3Votes">0</span> votes</p>
+    </div>
+</div>
+
+<script>
+    let votes = {
+        "Option 1": 0,
+        "Option 2": 0,
+        "Option 3": 0
+    };
+
+    function vote(option) {
+        // Increment the vote count for the selected option
+        votes[option]++;
+        
+        // Update the displayed results
+        document.getElementById('option1Votes').textContent = votes["Option 1"];
+        document.getElementById('option2Votes').textContent = votes["Option 2"];
+        document.getElementById('option3Votes').textContent = votes["Option 3"];
+    }
+</script>
+
+</body>
+</html>
